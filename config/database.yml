@@ -6,9 +6,9 @@
 development:
   adapter: postgresql
   database: dev_base
-  pool: 5
   username: test_user
   password: test
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,13 +16,13 @@ development:
 test:
   adapter: postgresql
   database: test_base
-  pool: 5
   username: test_user
   password: test
+  host: localhost
 
 production:
   adapter: postgresql
   database: prod_base
-  pool: 5
+  encoding: utf8
   username: test_user
-  password: test
+ 
