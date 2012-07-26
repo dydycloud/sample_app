@@ -79,32 +79,6 @@ p {
 }
 
 
-/* footer */
-
-footer {
-	margin-top: 45px;
-	padding-top: 5px;
-	border-top: 1px solid $grayMediumLight;
-	color: $grayLight;
-	a {
-	  color: #555;
-	  &:hover { 
-		  color: $grayDarker;
-		}
-	}
-	small {
-	  float: left;
-	}
-	ul {
-	  float: right;
-	  list-style: none;
-	  li {
-		  float: left;
-		  margin-left: 10px;
-		}
-	}
-}
-
 /* miscellaneous */
 
 .debug_dump {
@@ -167,3 +141,44 @@ input, textarea, select, .uneditable-input {
   @extend .control-group;
   @extend .error;
  }
+
+ /* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: #555;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
