@@ -1,10 +1,10 @@
 include ApplicationHelper
 
 def valid_signup 
-  fill_in "Name",           with: "Example User"
-  fill_in "Email",          with: "user@example.com"
-  fill_in "Password",       with: "foobar"
-  fill_in "Confirmation",   with: "foobar"
+  fill_in "user_name",                    with: "Example User"
+  fill_in "user_email",                   with: "user@example.com"
+  fill_in "user_password",                with: "foobar"
+  fill_in "user_password_confirmation",   with: "foobar"
 end
 
 def sign_in(user)
@@ -17,10 +17,10 @@ def sign_in(user)
 end
 
 def fill_update 
-  	fill_in "Name",             with: new_name
-  	fill_in "Email",            with: new_email
-	fill_in "Password",         with: user.password
-	fill_in "Confirm Password", with: user.password
+  fill_in "user_name",             with: new_name
+  fill_in "user_email",            with: new_email
+	fill_in "user_password",         with: user.password
+	fill_in "user_password_confirmation", with: user.password
 	click_button "Save changes"
 end
 

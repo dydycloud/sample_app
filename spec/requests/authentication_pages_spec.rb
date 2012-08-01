@@ -9,6 +9,16 @@ describe "Authentication" do
 
     it { should have_h1('Sign in') }
     it { should have_title('Sign in') }
+    it { should_not have_profil_link("Profile") }
+    it { should_not have_settings_link("Settings") }
+
+  end
+
+  describe "link on the page for non-users" do
+    before { visit root_path }
+    
+    it { should_not have_profil_link("Profile") }
+    it { should_not have_settings_link("Settings") }
   end
 
   describe "signin" do
@@ -16,6 +26,7 @@ describe "Authentication" do
     before { visit signin_path }
 
     describe "with invalid information" do
+      let(:user) { FactoryGirl.create(:user) }
       before { click_button "Sign in" }
 
       it { should have_title('Sign in') }
@@ -59,13 +70,24 @@ describe "Authentication" do
             click_button "Sign in"
           end
 
-          describe "after signing in" do
-
+        describe "after signing in" do
             it "should render the desired protected page" do
               page.should have_selector('title', text: 'Edit user')
             end
+        end
+
+        describe "in the Microposts controller" do
+          describe "submitting to the create action" do
+            before { post microposts_path }
+            specify { response.should redirect_to(signin_path) }
+          end
+
+          describe "submitting to the destroy action" do
+            before { delete micropost_path(FactoryGirl.create(:micropost)) }
+            specify { response.should redirect_to(signin_path) }
           end
         end
+    end
 
       describe "in the Users controller" do
        
