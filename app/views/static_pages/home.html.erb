@@ -1,31 +1,35 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
+    <aside class="span5">
       <section>
         <%= render 'shared/user_info' %>
+      </section>
+      <br />
+      <section>
+        <%= render 'shared/stats' %>
       </section>
       <section>
         <%= render 'shared/micropost_form' %>
       </section>
     </aside>
-    <div class="span8">
+    <div class="span7">
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>  
 <% else %>
   <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to Tweet Monkey</h1>
 
     <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+      This is the home page for twitter like app based on, 
+      <a href="http://railstutorial.org/" target="_blank">Ruby on Rails Tutorial</a>
       sample application.
     </h2>
 
     <%= link_to "Sign up now!", signup_path, 
                                 class: "btn btn-large btn-primary" %>
   </div>
-
+  <%= link_to image_tag("Twitter_Monkey.JPG", alt: "Be Monkey", :size=>'64x64'), 'http://bemonkey.net/' %>
   <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %> 
